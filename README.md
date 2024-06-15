@@ -142,7 +142,7 @@ print(fp)
 *The same as before, another file but named encrypt.py, you just have to replace 'fingerprint' with the modified fingerprint you have created. This way you'll encrypt your fingerprint and Epic Games will accept it as valid. I can give you an example:*
 
 ```py
-# Using encrypt.py:
+# Using encrypt.py (Thanks Exploited7):
 
 import json
 import base64
