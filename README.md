@@ -115,3 +115,81 @@ async function getXal() {
 *Now if we open index.html, we will see the values of the 2 functions we have executed: first the fingerprint before encryption, and then the encrypted 'xal'.*
 
 ![image](https://github.com/H4cK3dR4Du/Epicgames-Xal/assets/118562174/6ac6492a-6ddc-47c0-8297-f2c47a48115e)
+
+<h2 align="center"> 🍧 Test Yourself 🍧</h2>
+
+### - Modify Values Fingerprint:
+
+*You can modify the values of the fingerprint to unflag it, and then use encryption.py to encrypt it correctly so that it passes validation in Epic Games. Here's an example code:*
+
+```bash
+import json,
+
+fp = json.load(open("examples/fingerprint.json", "r"))
+fp["navigator"]["user_agent"] = "User Agent You Want"
+
+print(fp)
+```
+
+### - Decrypt XAL:
+
+*I have created a file called decrypt.py for you to decrypt your 'xal' value. Simply replace 'Xal here' with your actual xal, and it will be saved in 'results/decrypted_xal.txt'.*
+
+![image](https://github.com/H4cK3dR4Du/Epicgames-Xal/assets/118562174/d50b8183-0108-4434-a697-96ce80c4f57a)
+
+### - Encrypt XAL:
+
+*The same as before, another file but named encrypt.py, you just have to replace 'fingerprint' with the modified fingerprint you have created. This way you'll encrypt your fingerprint and Epic Games will accept it as valid. I can give you an example:*
+
+```bash
+# Using encrypt.py:
+
+import json
+import base64
+from datetime import datetime
+import random
+import string
+import time
+import hashlib
+
+def encode_data(a):
+    xxx = "FZMÛSê/·V«xÞhí¢³4<`ô2ª,µ¦Yû"
+    b = 0
+    c = json.dumps(a).encode('utf-8')
+    d = list(range(256))
+    e = 0
+    f = ""
+
+    for h in range(256):
+        e = (e + d[h] + ord(xxx[h % len(xxx)])) % 256
+        b = d[h]
+        d[h] = d[e]
+        d[e] = b
+
+    i = 0
+    e = 0
+
+    for j in range(len(c)):
+        i = (i + 1) % 256
+        e = (e + d[i]) % 256
+        b = d[i]
+        d[i] = d[e]
+        d[e] = b
+        f += chr(c[j] ^ d[(d[i] + d[e]) % 256])
+
+    encrypted = base64.b64encode(f.encode('latin-1')).decode('latin-1')
+
+    with open('results/encrypted_xal.txt', 'w') as file:
+        file.write(encrypted + "\n")
+
+    return encrypted
+
+fp = json.load(open("examples/fingerprint.json", "r"))
+fp["navigator"]["user_agent"] = "User Agent You Want"
+fp["document"]["title"] = "Radu nooby"
+
+xal_encrypted = encode_data(fp)
+print(xal_encrypted)
+```
+
+![image](https://github.com/H4cK3dR4Du/Epicgames-Xal/assets/118562174/d5796ba9-32c5-4398-8af2-e469c3002b80)
