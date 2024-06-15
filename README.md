@@ -42,7 +42,7 @@
 
 ![image](https://github.com/H4cK3dR4Du/Epicgames-Xal/assets/118562174/4085ce9b-f659-43f9-9018-7e5719c3a1c8)
 
-*The function '_0x37726c' is responsible for constructing the fingerprint before it is encrypted by the '_0xcea415' function, so let's analyze the code a bit and see how we can view the 'xal' value before it is encrypted.*
+*The function '_0x37726c' is responsible for constructing the fingerprint before it is encrypted by the '_0x420d7c' function, so let's analyze the code a bit and see how we can view the 'xal' value before it is encrypted.*
 
 *In the 'index.html' file, we will add code to execute the 'files/modified_talon.js' file, so that we can start viewing values using console.log();*
 
@@ -61,7 +61,7 @@
 </html>
 ```
 
-*Now let's create a new function in the 'talon.js' file to execute the '_0x37726c' function, which generates the 'xal' fingerprint. We will log the result using console.log('Fingerprint -> ', JSON.stringify(result, null, 2));, so that we can see the 'xal' string before it is encrypted by the '_0xcea415' function.*
+*Now let's create a new function in the 'talon.js' file to execute the '_0x37726c' function, which generates the 'xal' fingerprint. We will log the result using console.log('Fingerprint -> ', JSON.stringify(result, null, 2));, so that we can see the 'xal' string before it is encrypted by the '_0x420d7c' function.*
 
 ```bash
 async function getFingerprint() {
@@ -84,3 +84,34 @@ getFingerprint();
 
 *Indeed, that's the entire 'xal' value before encryption. It seems to be a fingerprint containing a lot of browser, screen, and hash information. It totals around 400 lines in length. If you'd like to see an example of a fingerprint, you can find it in examples/fingerprint.json.*
 
+*Alright, now let's go directly to the function where they encrypt that fingerprint, which in this case is the function '_0x420d7c'. To ensure that this is indeed the function, you can add a simple console.log(); and print the variable that is passed to the function, like this:*
+
+```bash
+function _0x420d7c(_0x4a761c) {
+        console.log(JSON.stringify(_0x4a761c, null, 2)); // Add this and Dev Tools > Console to check if it's the fingerprint (it is)
+        var _0x2ce575;
+        var _0x40db03 = unescape(encodeURIComponent(JSON.stringify(_0x4a761c)));
+        var _0x16633c = [];
+        var _0x446316 = 0;
+        var _0x2e8cf0 = '';
+```
+
+*In the same function, we can see a somewhat strange string that appears to be the encryption key they use to encrypt the fingerprint.*
+
+![image](https://github.com/H4cK3dR4Du/Epicgames-Xal/assets/118562174/689d11ca-faa7-4100-bdbb-b9696e37fd1a)
+
+*What we need to do is find where the function '_0x420d7c' is called, to know which function we should execute to get the encrypted 'xal' value. In this case, if we search for it in Visual Studio's search, it references the function '_0xcea415', so let's now create a JavaScript code in the .js file similar to the previous one to call the encryption function and see the encrypted 'xal' along with the fingerprint before encryption, thus ensuring we are on the right track.*
+
+```bash
+async function getXal() {
+      try {
+          const result = await _0xcea415();
+          console.log('Xal Encrypted -> ', JSON.stringify(result, null, 2));
+      } catch (error) {
+          console.error("Ok idc", error);
+      }
+```
+
+*Now if we open index.html, we will see the values of the 2 functions we have executed: first the fingerprint before encryption, and then the encrypted 'xal'.*
+
+![image](https://github.com/H4cK3dR4Du/Epicgames-Xal/assets/118562174/6ac6492a-6ddc-47c0-8297-f2c47a48115e)
