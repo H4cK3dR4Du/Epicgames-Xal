@@ -25,7 +25,7 @@
 
 ### - Requirements And Files:
 
-- **Download Node [here]([https://hex-rays.com/ida-free/](https://nodejs.org/en/download/package-manager))**
+- **Download Node [here](https://nodejs.org/en/download/package-manager)**
 - **Download Python [here](https://www.python.org/downloads/)**
 
 ### - XAL Reverse Documentation:
