@@ -53,7 +53,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Xal Reverse</title>
-    <script src="xal.js"></script>
+    <script src="files/modified_talon.js"></script>
 </head>
 <body>
     
@@ -67,7 +67,7 @@
 async function getFingerprint() {
         try {
             const result = await _0x37726c();
-            console.log('Fingerprint? -> ', JSON.stringify(result, null, 2));
+            console.log('Fingerprint -> ', JSON.stringify(result, null, 2));
         } catch (error) {
             console.error("Ok idc", error);
         }
