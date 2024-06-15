@@ -30,4 +30,10 @@
 
 ### - XAL Reverse Documentation:
 
-#### - Get XAL Javascript file.
+#### - Get XAL Javascript file:
+
+*Okay, first we'll go to the epicgames.com website and open Dev Tools > Sources.*
+
+![image](https://github.com/H4cK3dR4Du/Epicgames-Xal/assets/118562174/77305822-77ea-469d-a652-bc995255ff49)
+
+*Here we find an interesting file called 'talon_sdk.js'. If we observe, it's obfuscated. Let's deobfuscate it a bit using a website I really like called https://obf-io.deobfuscate.io/. We'll paste the code there, which will give us a more readable version. Now let's copy that code into a .js file; you can find it in this repository as 'talon_deobfuscated.js'.*
