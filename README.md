@@ -46,7 +46,7 @@
 
 *In the 'index.html' file, we will add code to execute the 'files/modified_talon.js' file, so that we can start viewing values using console.log();*
 
-```bash
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -63,7 +63,7 @@
 
 *Now let's create a new function in the 'talon.js' file to execute the '_0x37726c' function, which generates the 'xal' fingerprint. We will log the result using console.log('Fingerprint -> ', JSON.stringify(result, null, 2));, so that we can see the 'xal' string before it is encrypted by the '_0x420d7c' function.*
 
-```bash
+```js
 async function getFingerprint() {
         try {
             const result = await _0x37726c();
@@ -86,7 +86,7 @@ getFingerprint();
 
 *Alright, now let's go directly to the function where they encrypt that fingerprint, which in this case is the function '_0x420d7c'. To ensure that this is indeed the function, you can add a simple console.log(); and print the variable that is passed to the function, like this:*
 
-```bash
+```js
 function _0x420d7c(_0x4a761c) {
         console.log(JSON.stringify(_0x4a761c, null, 2)); // Add this and Dev Tools > Console to check if it's the fingerprint (it is)
         var _0x2ce575;
@@ -102,7 +102,7 @@ function _0x420d7c(_0x4a761c) {
 
 *What we need to do is find where the function '_0x420d7c' is called, to know which function we should execute to get the encrypted 'xal' value. In this case, if we search for it in Visual Studio's search, it references the function '_0xcea415', so let's now create a JavaScript code in the .js file similar to the previous one to call the encryption function and see the encrypted 'xal' along with the fingerprint before encryption, thus ensuring we are on the right track.*
 
-```bash
+```js
 async function getXal() {
       try {
           const result = await _0xcea415();
@@ -122,7 +122,7 @@ async function getXal() {
 
 *You can modify the values of the fingerprint to unflag it, and then use encryption.py to encrypt it correctly so that it passes validation in Epic Games. Here's an example code:*
 
-```bash
+```py
 import json,
 
 fp = json.load(open("examples/fingerprint.json", "r"))
