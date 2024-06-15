@@ -1,7 +1,6 @@
 <h1 align="center">✨ 𝔼𝕡𝕚𝕔𝕘𝕒𝕞𝕖𝕤 𝕏𝕒𝕝 ✨</h1>
 
 <p align="center">
-  <img src="https://img.shields.io/github/license/H4cK3dR4Du/Epicgames-Xal.svg?style=for-the-badge&labelColor=black&color=c1121f&logo=IOTA"/>
   <img src="https://img.shields.io/github/stars/H4cK3dR4Du/Epicgames-Xal.svg?style=for-the-badge&labelColor=black&color=c1121f&logo=IOTA"/>
   <img src="https://img.shields.io/github/languages/top/H4cK3dR4Du/Epicgames-Xal.svg?style=for-the-badge&labelColor=black&color=c1121f&logo=javascript"/>
 </p>
